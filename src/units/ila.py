@@ -21,7 +21,7 @@ class ILAUnit(BluePrint):
         else:
             raise ValueError("Unsupported source")
 
-    def get(self, pk: str):
+    def get(self, pk: str)->dict:
         """Retrieve data by primary key."""
         try:
             result = self.data.loc[self.data['MANUALPOLICYNO'] == pk]
@@ -45,7 +45,7 @@ class ILAUnit(BluePrint):
             }
      
             
-    def get_all(self):
+    def get_all(self)->dict:
         """Retrieve data by primary key."""
         try:
             return {
@@ -61,7 +61,7 @@ class ILAUnit(BluePrint):
             }
             
             
-    def post(self, data: list):
+    def post(self, data: list)->dict:
         """Add new data to the Excel file."""
         try:
             # Check if self.data is a DataFrame
@@ -91,7 +91,7 @@ class ILAUnit(BluePrint):
                 'data': data
             }
             
-    def update(self, pk: str, update_data: dict):
+    def update(self, pk: str, update_data: dict)->dict:
         """Update a policy in the data source."""
         try:
             # Check if self.data is a DataFrame
@@ -128,7 +128,7 @@ class ILAUnit(BluePrint):
                 'data': None
             }
 
-    def delete(self, pk: str):
+    def delete(self, pk: str)->dict:
         """Delete a policy from the data source."""
         try:
             # Check if self.data is a DataFrame
